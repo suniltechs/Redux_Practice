@@ -1,16 +1,81 @@
-# React + Vite
+# 📘 React Practice — CRUD App with Redux Toolkit & React Router
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a simple React CRUD practice application built to learn and practice:
 
-Currently, two official plugins are available:
+- React Hooks
+- React Router
+- Redux Toolkit (RTK)
+- Global State Management
+- Add, Edit, Delete functionality
+- Form handling in React
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### This app allows users to:
 
-## React Compiler
+ ✔ Add Items (Fruits / Users) <br/>
+ ✔ View All Items <br/>
+ ✔ Edit an Item <br/>
+ ✔ Delete an Item <br/>
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🚀 Features
 
-## Expanding the ESLint configuration
+🔹 Add New Item : Users can enter name, age, email, or fruit details using a controlled form.<br/>
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+🔹 Edit Item : Users can edit existing data using an Edit page (/edit/:id route).<br/>
+
+🔹 Delete Item : Each item has a delete button to remove it from Redux state.<br/>
+
+🔹 Global State Management (Redux Toolkit) : All items are stored in a central Redux store.<br/>
+
+🔹 Routing (React Router) : Navigation between pages using:
+
+/ → Home (Add Form)
+
+/users → Users List
+
+/edit/:id → Edit Item Page
+
+## 🛠️ Tech Stack
+
+| Technology            | Purpose               |
+| --------------------- | --------------------- |
+| **React**             | UI development        |
+| **Redux Toolkit**     | State management      |
+| **React Router DOM**  | Routing               |
+| **JavaScript (ES6+)** | Logic & interactivity |
+
+
+## 🧠 Key Concepts Practiced
+
+✔ useState : Handling input forms. <br/>
+
+✔ useDispatch & useSelector : Dispatching Redux actions and selecting data from the store. <br/>
+
+✔ createSlice : Creating reducers in Redux Toolkit. <br/>
+
+✔ map(), filter() : Performing edit/delete operations immutably. <br/>
+
+✔ useParams : Getting the ID for editing. <br/>
+
+✔ useNavigate : Redirecting after editing. <br/>
+
+✔ Controlled Inputs : Managing form state in React. <br/>
+
+## 🧩 Example Redux Slice (CRUD)
+
+```
+setUsers: (state, action) => {
+    state.users = [...state.users, action.payload]
+},
+deleteUsers: (state, action) => {
+    state.users = state.users.filter((u) => u.id !== action.payload)
+},
+updateUser: (state, action) => {
+    state.users = state.users.map((u) =>
+        u.id === action.payload.id ? action.payload : u
+    )
+}
+```
+
+## 📜 License
+
+This project is open-source and free to use.
